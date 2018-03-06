@@ -6,18 +6,18 @@ from flask import Blueprint, jsonify, request, render_template
 from .inference import inference
 
 
-test_ai_model = Blueprint('test_ai_model', __name__, template_folder="../templates")
+test_ml_model = Blueprint('test_ml_model', __name__, template_folder="../templates")
 
 
 # you can get to this route by typing /test_ai_model/ in your browser
-@test_ai_model.route('/')
+@test_ml_model.route('/')
 def index():
     return inference("hello")
 
 
 # example of a POST call.
 # you can get to this route by typing /test_ai_model/chat in your browser
-@joeychatbot.route('/chat', methods = ['POST'])
+@test_ml_model.route('/chat', methods = ['POST'])
 def chat():
 	if request.method == 'POST':
 		# you can use <user_id>, which is a str but could

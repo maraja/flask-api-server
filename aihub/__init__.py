@@ -1,7 +1,7 @@
 from flask import Flask, Blueprint, g
 from aihub.main.controllers import main
 from aihub.admin.controllers import admin
-from aihub.test_ai_model.controllers import test_ai_model
+from aihub.test_ml_model.controllers import test_ml_model
 from aihub.splash.controllers import splash
 
 from aihub.config.controllers import DevelopmentConfig
@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 app.register_blueprint(main, url_prefix='/')
 app.register_blueprint(admin, url_prefix='/admin')
-app.register_blueprint(test_ai_model, url_prefix='/test_ai_model')
+app.register_blueprint(test_ml_model, url_prefix='/test_ml_model')
 
 app.register_blueprint(splash, url_prefix='/splash')
 
