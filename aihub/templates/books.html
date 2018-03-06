@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+ 
+<div class="block1">
+<h1>Hello {{name}}!</h1>
+	<h2>These are your books!</h2>
+	{% for title, data in books.items() %}
+	{# Checks if book is marked as hidden #}
+	{%- if data.hidden %}{% continue %}{% endif %}
+	  <tr>
+	    <td>
+	      <img src="{{ url_for('static', filename='images/books/') }}{{data.image}}"
+	          alt="{{title}}"/>
+	    </td>
+	    <td>{{title | upper}}</td>
+	    <td>{{data.author}}</td>
+	    <td>{{data.rating}}</td>
+	  </tr>
+	{% endfor %}
+</div>
+{% endblock %}
